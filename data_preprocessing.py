@@ -21,7 +21,7 @@ def get_playlist_info_with_lyrics(spotify_id=None, spotify_secret=None, lyricsGe
         # 取得 config. 歌單
         uri = conf.personal_playlists()
 
-        # 抓取歌單 info.
+        # 抓取歌單 info. 因為 API 限制，一個歌單最多只能回吐 100 首歌
         pua = []
         for playlist_ in uri: # 雖然 playlist dict 裡只有一個歌單，還是用 for 去寫，未來有可能一次做多個歌單的分析
             pua.append(pl.playlist_info(spotify_obj=spotify, playlist_uri=playlist_))
